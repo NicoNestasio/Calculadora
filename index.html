@@ -5,44 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <title>Calculadora</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container" id="calculadora">
+        <div class="container" id="pantalla">
             <input type="text" id="display1" readonly>
             <input type="text" id="display2" value="0" readonly>
         </div>
-        <div class="row">
-            <button id="porciento" onclick="a=parseFloat(document.getElementById('display2').value); b='%'; impoperacion(a,b,' '); limpiar() ">%</button>
-            <button id="CE">CE</button>
-            <button id="C">C</button>
-            <button id="del">Del</button>
-            <button id="invertir">1/x</button>
-            <button id="cuadrado">x^2</button>
-            <button id="raíz" onclick="a=parseFloat(document.getElementById('display2').value); b='/'; impoperacion(a,b,' '); limpiar() ">sqrt</button>
-            <button id="division" onclick="a=parseFloat(document.getElementById('display2').value); b='/'; impoperacion(a,b,' '); limpiar() ">/</button>
+        <div class="row" id="botones">
+            <button id="porciento" class="btnazul"  onclick="especial('%')">%</button>
+            <button id="CE" onclick="limpiartodo()">CE</button>
+            <button id="C" onclick="limpiar()">C</button>
+            <button id="del" onclick="borrardeauno()">Del</button>
+            <button id="invertir" class="btnazul" onclick="especial('-1')">1/x</button>
+            <button id="cuadrado" class="btnazul" onclick="especial('c')">x<sup>2</sup></button>
+            <button id="raíz" class="btnazul" onclick="especial('r')">&radic;</button>
+            <button id="division" class="btnazul" onclick="guardar();  a=parseFloat(document.getElementById('display2').value); b='/'; impoperacion(a,b,' '); limpiar();finop=true; ">/</button>
             <button id="siete" onclick="imprimir('7')">7</button>
             <button id="ocho" onclick="imprimir('8')">8</button>
             <button id="nueve" onclick="imprimir('9')">9</button>
-            <button id="por" onclick="a=parseFloat(document.getElementById('display2').value); b='*'; impoperacion(a,b,' '); limpiar() ">x</button>
+            <button id="por" class="btnazul" onclick="guardar(); a=parseFloat(document.getElementById('display2').value); b='*'; impoperacion(a,b,' '); limpiar();finop=true;  ">x</button>
             <button id="cuatro" onclick="imprimir('4')">4</button>
             <button id="cinco" onclick="imprimir('5')">5</button>
             <button id="seis" onclick="imprimir('6')">6</button>
-            <button id="menos" onclick="a=parseFloat(document.getElementById('display2').value); b='-'; impoperacion(a,b,' '); limpiar() ">-</button>
+            <button id="menos" class="btnazul" onclick="guardar();  a=parseFloat(document.getElementById('display2').value); b='-'; impoperacion(a,b,' '); limpiar();finop=true;  ">-</button>
             <button id="uno" onclick="imprimir('1')">1</button>
             <button id="dos" onclick="imprimir('2')">2</button>
             <button id="tres" onclick="imprimir('3')">3</button>
-            <button id="mas" onclick="a=parseFloat(document.getElementById('display2').value); b='+'; impoperacion(a,b,' '); limpiar() ">+</button>
-            <button id="opuesto">+/-</button>
+            <button id="mas" class="btnazul" onclick=" guardar(); a=parseFloat(document.getElementById('display2').value); b='+'; impoperacion(a,b,' '); limpiar();finop=true; ">+</button>
+            <button id="opuesto" onclick="opuesto()">+/-</button>
             <button id="cero" onclick="imprimir('0')">0</button>
-            <button id="coma">,</button>
-            <button id="igual" onclick="c=parseFloat(document.getElementById('display2').value);limpiar();s=calcular(a,b,c); imprimir(s); impoperacion(a, b,c);igual=false;">=</button>
+            <button id="coma" onclick="imprimir('.')">,</button>
+            <button id="igual" class="btnceleste" onclick="c=parseFloat(document.getElementById('display2').value);s=calcular(a,b,c);limpiar();imprimir(s);guardar(); impoperacion(a, b,c); igual=false; finop=false;">=</button>
 
         </div>
-        <p>memoria= <span id="memoria">N/A</span></p>
     </div>
-    
-
+    <p>memoria= <span id="memoria"></span></p>
 </body>
 </html>
