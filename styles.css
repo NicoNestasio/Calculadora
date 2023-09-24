@@ -1,20 +1,23 @@
-
-*{
+* {
     font-family: 'Bricolage Grotesque', sans-serif;
 }
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh; /* Toma el 100% de la altura visible del viewport */
-    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    height: 100vh;
+    margin: 0;
+    object-fit: contain;
 }
-.row{
-    margin:0!important;
-    padding:0!important;
+
+.row {
+    margin: 0 !important;
+    padding: 0 !important;
 }
-#calculadora{
+
+#calculadora {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -26,28 +29,34 @@ body {
     padding: 6vh 1vi 1vh 1vi;
 
 }
-button{
+
+button {
     border-radius: 10%;
-    width: 100%!important;
-    height: 70px!important;
-    font-size:xx-large;
+    width: 100% !important;
+    height: 7vh !important;
+    font-size: xx-large;
 
 }
-.btnceleste{
-    background-color: #2196f3;    ;
+
+.btnceleste {
+    background-color: #2196f3;
+    ;
     color: aliceblue;
 }
-.btnazul{
+
+.btnazul {
     background-color: #1465bb;
-    color:aliceblue;
+    color: aliceblue;
 }
-#pantalla{
+
+#pantalla {
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 30vh;
     padding: 0;
 }
-#display2{
+
+#display2 {
     width: 100%;
     height: 80%;
     text-align: right;
@@ -55,20 +64,23 @@ button{
     font-size: 10vh;
     border: 0;
 }
-#display1{
+
+#display1 {
     width: 100%;
     background-color: #86895d;
     border: 0;
     font-size: 2.5vh;
 }
-#botones{
+
+#botones {
     width: 100%;
     display: grid;
-    grid-gap:1vi;
+    grid-gap: 1vi;
     grid-template-columns: repeat(4, 1fr);
 }
+
 @media (min-width: 768px) {
-    #calculadora{
+    #calculadora {
         width: 530px;
     }
-  }
+}
